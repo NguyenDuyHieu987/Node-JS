@@ -1,0 +1,35 @@
+{
+  "name": "the-movie-node-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "node-blog"
+  ],
+  "author": "hieu",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.6.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19"
+  },
+  "projectConfig": {
+    "apiKey": "hieu987"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  }
+}
