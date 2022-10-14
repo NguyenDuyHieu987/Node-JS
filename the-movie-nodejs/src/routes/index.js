@@ -9,6 +9,7 @@ const yearRouter = require('./year');
 const listRouter = require('./list');
 const watchlistRouter = require('./watchlist');
 const imageRouter = require('./image');
+const athRouter = require('./auth');
 // var allmovie = require('../public/responseTV');
 const axios = require('axios');
 
@@ -60,6 +61,7 @@ function route(app) {
   app.use('/list', listRouter);
   app.use('/watchlist', watchlistRouter);
   app.use('/image', imageRouter);
+  app.use('/auth', athRouter);
   // app.get('/getallmovie', async (req, res, next) => {
   //   // 1609
   //   var promiseList = [];

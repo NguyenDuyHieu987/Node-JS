@@ -4,10 +4,10 @@ const TVDetail = require('../models/TV');
 const config = require('../../../package.json');
 const API_KEY = config.projectConfig.apiKey;
 const errorMsg = require('../../until/errorMsg');
+const { ItemList } = require('../models/ItemList');
 
 const { multipleMongooseToObject } = require('../../until/mongoose');
 const { mongooseToObject } = require('../../until/mongoose');
-const { ItemList } = require('../models/ItemList');
 
 class ListController {
   // GET /
@@ -105,6 +105,28 @@ class ListController {
   }
 
   removeItem(req, res, next) {
+    try {
+      if (req.query.api == API_KEY) {
+        List.findOneAndUpdate(
+          { id: req.params.slug },
+          { $pull: { items: { id: req.body.media_id } } },
+          { new: true },
+          (err, doc) => {
+            if (err) {
+              console.log('Something wrong when updating data!');
+            }
+          }
+        );
+      } else {
+        res.status(400).json(errorMsg.errApiKey);
+      }
+    } catch (error) {
+      res.status(400).json(errorMsg.errDefault);
+    } finally {
+    }
+  }
+
+  newList(req, res, next) {
     try {
       if (req.query.api == API_KEY) {
         List.findOneAndUpdate(

@@ -120,7 +120,6 @@ class MovieController {
                   next(error);
                 });
             }
-
             break;
         }
       } else {
